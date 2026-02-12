@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  calcium:
+    build: .
+    container_name: calcium-app
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - calcium-network
+
+networks:
+  calcium-network:
+    driver: bridge
